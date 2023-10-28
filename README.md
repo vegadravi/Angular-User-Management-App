@@ -6,7 +6,7 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 
 Before you begin, make sure you have the following software and tools installed:
 
-# Node.js: If you don't have Node.js installed, download and install it from https://nodejs.org/.
+# Node.js: if you don't have Node.js installed, dowload and install it from https://nodejs.org/.
 
 # Angular CLI : You'll need the Angular CLI to run and build the application. If you don't have it, install it globally using npm with the following command:
 
