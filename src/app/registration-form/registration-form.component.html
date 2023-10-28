@@ -1,0 +1,77 @@
+<p-toast></p-toast>
+<div class="container">
+  <div class="row">
+    <div class="col-md-8 mx-auto">
+      <div class="card">
+        <div class="card-header">
+          <h3>Angular Reactive Form</h3>
+        </div>
+        <div class="card-body">
+          <form class="form" [formGroup]="registerForm" (ngSubmit)="onSubmit()">
+            <div class="form-group">
+              <div class="form-row">
+                <div class="col-md-6">
+                  <label for="firstName">First Name</label>
+                  <input type="text" class="form-control" id="firstName" formControlName="firstName">
+                  <div class="text-danger error-message"
+                    *ngIf="(registerFormControl['firstName'].touched || submitted) && registerFormControl['firstName'].hasError('required')">
+                    Name is required
+                  </div>
+                </div>
+                <div class="col-md-6">
+                  <label for="lastName">Last Name</label>
+                  <input type="text" class="form-control" id="lastName" formControlName="lastName">
+                  <div class="text-danger error-message"
+                    *ngIf="(registerFormControl['lastName'].touched || submitted) && registerFormControl['lastName'].hasError('required')">
+                    Name is required
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="email">Email</label>
+              <input type="text" class="form-control" id="email" formControlName="email">
+              <div class="text-danger error-message"
+                *ngIf="(registerFormControl['email'].touched || submitted) && registerFormControl['email'].hasError('required')">
+                Email is required
+              </div>
+              <div class="text-danger error-message"
+                *ngIf="registerFormControl['email'].touched && registerFormControl['email'].hasError('email')">
+                Enter a valid email address
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="password">Password</label>
+              <input type="password" class="form-control" id="password" formControlName="password">
+              <div class="text-danger error-message"
+                *ngIf="(registerFormControl['password'].touched || submitted) && registerFormControl['password'].hasError('required')">
+                Password is required
+              </div>
+              <div class="text-danger error-message"
+                *ngIf="registerFormControl['password'].touched && registerFormControl['password'].hasError('invalidPassword')">
+                Password should have a minimum of 8 characters, at least 1 uppercase letter, 1 lowercase letter, and 1 number
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="confirmPassword">Confirm Password</label>
+              <input type="password" class="form-control" id="confirmPassword" formControlName="confirmPassword">
+              <div class="text-danger error-message"
+                *ngIf="(registerFormControl['confirmPassword'].touched || submitted) && registerFormControl['confirmPassword'].hasError('required')">
+                Confirm Password is required
+              </div>
+              <div class="text-danger error-message"
+                *ngIf="registerFormControl['confirmPassword'].touched && registerFormControl['confirmPassword'].hasError('passwordMismatch')">
+                Passwords do not match
+              </div>
+            </div>
+            <div class="form-group">
+              <button type="submit" class="btn btn-success" [disabled]="!registerForm.valid">Submit</button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+  <p-confirmDialog></p-confirmDialog>
